@@ -8,7 +8,7 @@ Feature: The first feature
         When Hello1
     
     Scenario: The third scenario
-        Given test 
+        Given test request
     
     Scenario: The fourth scenario
         Given Number is 1
