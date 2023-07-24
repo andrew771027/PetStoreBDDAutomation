@@ -1,5 +1,5 @@
 
-from behave import given, when, then
+from behave import given, when, then, step
 import requests
 import pprint
 
@@ -32,3 +32,19 @@ def step_impl(context, number):
 @when("show number from context")
 def step_impl(context):
     print(context.number)
+
+
+@step("no prefix")
+def step_impl(context):
+    print("no step")
+    print("no step")
+
+
+@when("run nested step")
+def step_impl(context):
+    steps = [
+        "Given Hello World1",
+        "When no prefix"
+    ]
+
+    context.execute_steps('\n'.join(steps))
