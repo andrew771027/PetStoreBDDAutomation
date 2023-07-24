@@ -1,7 +1,10 @@
 
-from behave import given, when, then, step
 import requests
 import pprint
+from behave import given, when, then, step
+from tests.utilities.logs import create_logger
+
+logger = create_logger(__name__)
 
 
 @given("Hello World1")
@@ -9,6 +12,7 @@ def step_impl(context):
     print("11111111")
     print("22222222")
     print("33333333")
+    logger.info(12345)
 
 
 @when("Hello1")
@@ -20,7 +24,7 @@ def step_impl(context):
 def step_impl(context):
     response = requests.get(
         "https://petstore.swagger.io/v2/store/inventory")
-    pprint.pprint(response.json())
+    # pprint.pprint(response.json())
 
 
 @given("Number is {number}")

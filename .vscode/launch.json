@@ -21,7 +21,9 @@
             "cwd": "${workspaceFolder}",
             "args": [
                 "tests/features/first_feature.feature",
-                "--no-capture"
+                "--capture",
+                "--format",
+                "allure_behave.formatter:AllureFormatter"
             ],
         }
     ]
