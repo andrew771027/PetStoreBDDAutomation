@@ -1,6 +1,6 @@
+
 from behave import given, when, then
 import requests
-import json
 import pprint
 
 
@@ -18,7 +18,8 @@ def step_impl(context):
 
 @given("test request")
 def step_impl(context):
-    response = requests.get("https://petstore.swagger.io/v2/store/inventory")
+    response = requests.get(
+        "https://petstore.swagger.io/v2/store/inventory")
     pprint.pprint(response.json())
 
 
