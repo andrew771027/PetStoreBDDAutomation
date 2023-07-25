@@ -25,7 +25,5 @@ Feature: Demo Feature 1
         Given This is the root statement
 
 
-    Scenario: The third scenario
-        Given test request
     
 

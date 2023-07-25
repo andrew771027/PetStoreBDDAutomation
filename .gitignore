@@ -1,3 +1,5 @@
 reports/
+docs/
 **.pyc
 __pycache__
+.DS_Store

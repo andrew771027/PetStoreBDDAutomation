@@ -20,10 +20,10 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": [
-                "tests/features/first_feature.feature",
+                "tests/features/demo_feature_4.feature",
                 "--capture",
-                "--format",
-                "allure_behave.formatter:AllureFormatter"
+                // "--format",
+                // "allure_behave.formatter:AllureFormatter"
             ],
         }
     ]

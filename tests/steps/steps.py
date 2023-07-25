@@ -1,8 +1,9 @@
 
 import requests
-import pprint
 from behave import given, when, then, step
 from tests.utilities.logs import create_logger
+from tests.rests.rest_client import PetStoreAPIClient
+
 
 logger = create_logger(__name__)
 
@@ -70,8 +71,14 @@ def step_impl(context):
     print('This is the root statement')
 
 
-@given("test request")
+@when("test GET get_store_inventory api")
 def step_impl(context):
-    response = requests.get(
-        "https://petstore.swagger.io/v2/store/inventory")
-    # pprint.pprint(response.json())
+    api_client = PetStoreAPIClient()
+    response = api_client.get_store_inventory()
+    context.response = response
+
+
+@then("the response code is equal to {status_code}")
+def step_impl(context, status_code):
+    response = context.response
+    assert response.status_code == int(status_code)

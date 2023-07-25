@@ -1,16 +1,16 @@
 from behave import fixture, use_fixture
 import allure
 
-@fixture
-def foo(context):
-    print("Hi")
+# @fixture
+# def foo(context):
+#     print("Hi")
 
 
-def before_all(context):
-    print("This is before all")
-    print("This is before all")
-    print("This is before all")
-    use_fixture(foo, context)
+# def before_all(context):
+#     print("This is before all")
+#     print("This is before all")
+#     print("This is before all")
+#     use_fixture(foo, context)
 
 def after_step(context, step):
     stdout = context.stdout_capture.getvalue()
