@@ -7,17 +7,67 @@ from tests.utilities.logs import create_logger
 logger = create_logger(__name__)
 
 
-@given("Hello World1")
+@given("This is Given statement")
 def step_impl(context):
-    print("11111111")
-    print("22222222")
-    print("33333333")
-    logger.info(12345)
+    print('This is Given Statement')
 
 
-@when("Hello1")
+@when("This is When statement")
 def step_impl(context):
-    print("44444444")
+    print('This is When Statement')
+
+
+@then("This is Then statement")
+def step_impl(context):
+    print('This is Then statement')
+
+
+@step("This is Given statement start from step")
+def step_impl(context):
+    print('This is When statement start from step')
+
+
+@step("This is When statement start from step")
+def step_impl(context):
+    print('This is When statement start from step')
+
+
+@step("This is Then statement start from step")
+def step_impl(context):
+    print('This is Then statement start from step')
+
+
+@step("Set Number to {number}")
+def step_impl(context, number):
+    print(f'Number is {number}')
+
+
+@given("Set a storage to context")
+def step_impl(context):
+    context.storage = {}
+
+
+@when("Set Number to {number} and store to storage[{key}]")
+def step_impl(context, number, key):
+    print(f'Number is {number}')
+    context.storage[key] = number
+
+
+@when("Get Number from storage[{key}]")
+def step_impl(context, key):
+    print(f'Number is {context.storage[key]}')
+
+
+@step("This is the root statement")
+def step_impl(context):
+    print('This is the root statement')
+    steps = ['Given This is the secondary layer statement']
+    context.execute_steps('\n'.join(steps))
+
+
+@step("This is the secondary layer statement")
+def step_impl(context):
+    print('This is the root statement')
 
 
 @given("test request")
@@ -25,30 +75,3 @@ def step_impl(context):
     response = requests.get(
         "https://petstore.swagger.io/v2/store/inventory")
     # pprint.pprint(response.json())
-
-
-@given("Number is {number}")
-def step_impl(context, number):
-    print(number)
-    context.number = number
-
-
-@when("show number from context")
-def step_impl(context):
-    print(context.number)
-
-
-@step("no prefix")
-def step_impl(context):
-    print("no step")
-    print("no step")
-
-
-@when("run nested step")
-def step_impl(context):
-    steps = [
-        "Given Hello World1",
-        "When no prefix"
-    ]
-
-    context.execute_steps('\n'.join(steps))
