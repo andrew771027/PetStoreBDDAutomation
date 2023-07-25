@@ -1,4 +1,3 @@
-import requests
 from behave import given, when, then, step
 from tests.utilities.logs import create_logger
 from tests.rests.rest_client import PetStoreAPIClient
@@ -73,7 +72,7 @@ def step_impl(context):
 
 @step("This is the secondary layer statement")
 def step_impl(context):
-    print("This is the root statement")
+    print("This is the secondary layer statement")
 
 
 @when("test GET get_store_inventory api")
