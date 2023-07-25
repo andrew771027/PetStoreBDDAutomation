@@ -11,3 +11,9 @@ brew install allure
 ``` sh
 pip install -r requirement.txt
 ```
+
+3. Pre Commit
+
+```sh
+pre-commit install
+```
