@@ -82,6 +82,13 @@ def step_impl(context):
     context.response = response
 
 
+@when("test GET get_store_order api")
+def step_impl(context):
+    api_client = PetStoreAPIClient()
+    response = api_client.get_store_order(uri_params={"orderId": 2})
+    context.response = response
+
+
 @then("the response code is equal to {status_code}")
 def step_impl(context, status_code):
     response = context.response
