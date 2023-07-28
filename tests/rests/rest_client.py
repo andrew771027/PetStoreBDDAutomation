@@ -16,7 +16,7 @@ class PetStoreAPIClient(PetStoreEndpointMixin):
             base_url=self._base_url,
             raw_path=path,
             uri_params=uri_params if uri_params else dict(),
-            auth=HTTPBasicAuth("username", "password"),
+            base_path="/v2",
             params=params if params else dict(),
         ).response
 
